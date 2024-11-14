@@ -6,17 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $autor = $_POST['autor'];
     $ano_publicacao = $_POST['ano_publicacao'];
 
-    // Conexão com o banco de dados
     $db = getDatabaseConnection();
 
-    // Inserir o novo livro
     $stmt = $db->prepare('INSERT INTO livros (titulo, autor, ano_publicacao) VALUES (:titulo, :autor, :ano_publicacao)');
     $stmt->bindValue(':titulo', $titulo);
     $stmt->bindValue(':autor', $autor);
     $stmt->bindValue(':ano_publicacao', $ano_publicacao);
     $stmt->execute();
 
-    // Redirecionar para a página principal
     header('Location: index.php');
 }
 ?>
