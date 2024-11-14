@@ -1,7 +1,6 @@
 <?php
 include('database.php');
 
-// Função para listar livros
 function listarLivros() {
     $db = getDatabaseConnection();
     $result = $db->query('SELECT * FROM livros');
